@@ -1,0 +1,50 @@
+/* Acceso flotante de WhatsApp - Sports Care */
+.whatsapp-float {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 1200;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 12px 18px;
+    border: 2px solid rgba(255, 255, 255, .9);
+    border-radius: 999px;
+    background: #25D366;
+    color: #073b20;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+    font: 700 14px/1.2 'Segoe UI', Tahoma, sans-serif;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+    background: #20bd5a;
+    color: #052f19;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .28);
+}
+.whatsapp-float:focus-visible {
+    outline: 3px solid #0a1128;
+    outline-offset: 3px;
+}
+.whatsapp-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+}
+@media (max-width: 600px) {
+    .whatsapp-float {
+        right: 14px;
+        bottom: 14px;
+        width: 58px;
+        height: 58px;
+        min-height: 58px;
+        padding: 10px;
+    }
+    .whatsapp-float__label { display: none; }
+    .whatsapp-icon { width: 32px; height: 32px; flex-basis: 32px; }
+}

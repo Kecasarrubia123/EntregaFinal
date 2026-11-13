@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda deportiva | Sports Care</title>
+  <link rel="stylesheet" href="css/tienda-base.css">
+  <link rel="stylesheet" href="css/tienda.css">
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+  <div class="navbar store-navbar">
+    <a href="index.html" class="brand">
+      <img src="img/logo.jpeg" alt="Logo de Sports Care">
+      <span>SPORTS <span>CARE</span></span>
+    </a>
+    <div class="nav-links store-links">
+      <a href="index.html">Inicio</a>
+      <a href="planes.html">Planes</a>
+      <a href="#productos">Productos</a>
+      <a href="#carrito">Mi carrito</a>
+      <a href="pqrs.html">Quejas y reclamos</a>
+    </div>
+    <div class="nav-actions">
+      <a href="#carrito" class="btn btn-primary cart-nav">🛒 Carrito <span id="cart-count">0</span></a>
+    </div>
+  </div>
+
+  <header class="store-hero">
+    <div>
+      <p class="eyebrow">TIENDA SPORTS CARE</p>
+      <h1>Equípate para <span>seguir avanzando.</span></h1>
+      <p>Complementa tus entrenamientos con suplementos e implementos deportivos seleccionados para acompañar tu progreso.</p>
+      <a href="#productos" class="btn btn-primary btn-large">Explorar productos ↓</a>
+    </div>
+    <div class="store-highlight">
+      <span class="highlight-icon">⚡</span>
+      <strong>Entrena mejor.</strong>
+      <p>Implementos y nutrición deportiva en un solo lugar.</p>
+    </div>
+  </header>
+
+  <main class="store-layout">
+    <section id="productos" class="products-section">
+      <div class="store-heading">
+        <div>
+          <p class="eyebrow">CATÁLOGO</p>
+          <h2>Productos para tu <span>entrenamiento.</span></h2>
+        </div>
+        <p>Agrega lo que necesites y administra las cantidades desde tu carrito.</p>
+      </div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <aside id="carrito" class="cart-panel">
+      <div class="cart-title">
+        <div>
+          <p class="eyebrow">TU SELECCIÓN</p>
+          <h2>Mi carrito</h2>
+        </div>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div id="empty-cart" class="empty-cart">
+        <span>🛒</span>
+        <strong>Tu carrito está vacío</strong>
+        <p>Agrega productos del catálogo para comenzar.</p>
+      </div>
+      <div class="cart-summary">
+        <div><span>Productos</span><strong id="summary-count">0</strong></div>
+        <div class="summary-total"><span>Total</span><strong id="cart-total">$0</strong></div>
+        <button id="checkout-btn" class="btn btn-primary checkout-btn" type="button" onclick="abrirPago()">Finalizar compra →</button>
+        <button id="clear-btn" class="clear-cart" type="button" onclick="vaciar()">Vaciar carrito</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Ventana de pago (Finalizar compra) -->
+  <div id="pago-modal" class="pago-overlay">
+    <div class="pago-box">
+      <button class="pago-close" type="button" onclick="cerrarPago()">×</button>
+
+      <!-- Formulario de pago -->
+      <div id="pago-form-area">
+        <p class="eyebrow">FINALIZAR COMPRA</p>
+        <h2>Pagar pedido</h2>
+
+        <div id="pago-resumen" class="pago-resumen"></div>
+        <div class="pago-total"><span>Total a pagar</span><strong id="pago-total">$0</strong></div>
+
+        <form id="form-pago">
+          <label>Nombre completo
+            <input name="buyerName" type="text" placeholder="Tu nombre" required maxlength="100">
+          </label>
+          <label>Correo electrónico
+            <input name="buyerEmail" type="email" placeholder="tu@email.com" required maxlength="150">
+          </label>
+          <label>Dirección de envío
+            <input name="address" type="text" placeholder="Calle, número, barrio y ciudad" required maxlength="180">
+          </label>
+          <label>Método de pago
+            <select id="metodo" onchange="cambiarMetodo()">
+              <option value="simulacion">Pago digital (simulación)</option>
+              <option value="pse-simulado">PSE (solo demostración)</option>
+              <option value="contraentrega-demo">Contraentrega (simulada)</option>
+            </select>
+          </label>
+
+          <p class="pago-nota">Esta compra es una simulación académica. No escribas números de tarjetas, claves bancarias ni datos financieros reales.</p>
+
+          <p id="nota-metodo" class="pago-nota"></p>
+          <button class="btn btn-primary checkout-btn" type="submit">Pagar ahora</button>
+        </form>
+        <p class="pago-aviso">Demostración académica: no se procesan pagos ni se solicitan datos de tarjetas o cuentas bancarias. El pedido se guarda solo en este navegador.</p>
+      </div>
+
+      <!-- Mensaje de compra exitosa -->
+      <div id="pago-exito" class="pago-exito">
+        <div class="check">✓</div>
+        <h2>¡Pedido registrado (demo)!</h2>
+        <p>Gracias por probar la tienda de Sports Care.</p>
+        <div class="pago-resumen">
+          <div class="pago-linea"><span>N.º de pedido</span><strong id="exito-pedido"></strong></div>
+          <div class="pago-linea"><span>Método de pago</span><strong id="exito-metodo"></strong></div>
+          <div class="pago-linea"><span>Total del pedido</span><strong id="exito-total"></strong></div>
+        </div>
+        <button class="btn btn-primary checkout-btn" type="button" onclick="cerrarPago()">Seguir comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <div class="footer store-footer">
+    <div class="footer-brand"><strong>Sports Care</strong><span> • Registra • Entrena • Progresa •</span></div>
+    <div class="store-footer-links"><a href="index.html">Inicio</a><a href="planes.html">Planes</a><a href="pqrs.html">Quejas y reclamos</a><a href="dashboard.html">Mi panel</a></div>
+    <p class="copyright-note">© 2026 Sports Care. Todos los derechos reservados.</p>
+  </div>
+  <script src="js/carrito.js"></script>
+
+    <!-- Acceso directo a WhatsApp para comunicación personalizada -->
+    <a class="whatsapp-float" href="https://wa.me/573332684156?text=Hola%2C%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20Sports%20Care." target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para comunicarse con Sports Care al +57 333 268 4156">
+        <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M16.02 3C8.85 3 3.02 8.79 3.02 15.92c0 2.29.61 4.53 1.78 6.5L3 29l6.78-1.77a13.1 13.1 0 0 0 6.23 1.58h.01C23.18 28.81 29 23.02 29 15.9 29 12.44 27.65 9.18 25.2 6.74A12.9 12.9 0 0 0 16.02 3Zm0 23.6h-.01a10.9 10.9 0 0 1-5.55-1.51l-.4-.24-4.02 1.05 1.07-3.9-.26-.41a10.7 10.7 0 0 1-1.65-5.67c0-5.97 4.87-10.82 10.85-10.82 2.9 0 5.62 1.13 7.67 3.17a10.75 10.75 0 0 1 3.18 7.66c0 5.97-4.87 10.83-10.88 10.83Zm5.96-8.1c-.33-.17-1.94-.95-2.24-1.06-.3-.11-.52-.17-.74.17-.22.33-.85 1.06-1.04 1.28-.19.22-.39.25-.72.08-.33-.17-1.39-.51-2.65-1.63-.98-.87-1.64-1.94-1.83-2.27-.19-.33-.02-.51.14-.68.15-.15.33-.39.5-.58.17-.19.22-.33.33-.55.11-.22.06-.41-.03-.58-.08-.17-.74-1.77-1.01-2.42-.27-.63-.54-.55-.74-.56h-.63c-.22 0-.58.08-.88.41-.3.33-1.16 1.13-1.16 2.73s1.19 3.17 1.35 3.39c.17.22 2.34 3.57 5.67 5.01.79.34 1.41.55 1.89.71.79.25 1.51.22 2.08.13.63-.09 1.94-.79 2.21-1.55.27-.77.27-1.42.19-1.55-.08-.14-.3-.22-.63-.39Z"/>
+        </svg>
+        <span class="whatsapp-float__label">Comunicación personalizada</span>
+    </a>
+
+</body>
+</html>

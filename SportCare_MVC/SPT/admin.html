@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo — Sports Care</title>
+    <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+       
+        <aside class="sidebar">
+            <div>
+                <a href="index.html" class="logo-box sidebar-brand" aria-label="Sports Care, volver al inicio">
+                    <img src="img/logo.jpeg" alt="Logo de Sports Care" class="logo-image">
+                    <span class="logo-text">ADMINISTRACIÓN</span>
+                </a>
+                <ul class="sidebar-menu">
+                    <li><button type="button" class="sidebar-link active" data-admin-target="admin-exercises-section">Gestión de ejercicios</button></li>
+                    <li><button type="button" class="sidebar-link" data-admin-target="admin-users-section">Gestión de usuarios</button></li>
+                    <li><button type="button" class="sidebar-link" data-admin-target="admin-pqrs-section">PQRS / Solicitudes</button></li>
+                    <li><button type="button" class="sidebar-link" data-admin-target="admin-orders-section">Pedidos de tienda</button></li>
+                    <li><button type="button" class="sidebar-link" data-admin-target="admin-plan-interests-section">Interés en planes</button></li>
+                    <li><a class="sidebar-link sidebar-anchor" href="planes.html">Ver planes</a></li>
+                    <li><a class="sidebar-link sidebar-anchor" href="tienda.html">Tienda deportiva</a></li>
+                    <li><a class="sidebar-link sidebar-anchor" href="pqrs.html">Formulario PQRS</a></li>
+                </ul>
+            </div>
+            <div>
+                <button class="btn btn-outline btn-full btn-sm" id="adminLogoutBtn">Cerrar Sesión</button>
+            </div>
+        </aside>
+
+    
+        <main class="main-content">
+            <div class="top-bar">
+                <span class="user-welcome" id="adminWelcomeText">Panel de Administración</span>
+                <span>Gestión de Sports Care</span>
+            </div>
+            <p class="prototype-notice" role="note">Prototipo académico: cuentas y ejercicios se almacenan en el navegador.</p>
+
+            <section class="admin-section" id="admin-exercises-section">
+                <div class="section-title section-title-left">
+                    <div>
+                        <h2>Catálogo de ejercicios</h2>
+                        <p>Registra, consulta, actualiza y elimina los ejercicios disponibles para los usuarios.</p>
+                    </div>
+                    <button class="btn btn-solid btn-sm" id="openCreateModalBtn">+ Nuevo ejercicio</button>
+                </div>
+
+            <div class="table-container">
+                <div style="padding: 15px; border-bottom: 1px solid var(--border);">
+                    <input type="text" id="adminSearch" placeholder="Buscar ejercicio por nombre o código..." style="width: 100%; max-width: 400px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius);">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Nivel</th>
+                            <th>Duración / Series</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminExerciseTable">
+                      
+                    </tbody>
+                </table>
+                </div>
+            </section>
+
+            <section class="admin-section" id="admin-users-section" style="display: none;">
+                <div class="section-title section-title-left">
+                    <div>
+                        <h2>Gestión de usuarios</h2>
+                        <p>Consulta las cuentas registradas y actualiza el nombre visible de cada usuario. El correo se mantiene como identificador para no desvincular su cuestionario e historial.</p>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <div class="table-toolbar">
+                        <input type="search" id="adminUserSearch" placeholder="Buscar por nombre o correo..." aria-label="Buscar usuarios">
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th><th>Acción</th></tr>
+                            </thead>
+                            <tbody id="adminUserTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="form-help">Esta administración utiliza datos de demostración guardados en el navegador; no es una autenticación de producción.</p>
+            </section>
+
+            <section class="admin-section" id="admin-pqrs-section" style="display: none;">
+                <div class="section-title section-title-left">
+                    <div><h2>Peticiones, quejas, reclamos y sugerencias</h2><p>Consulta las solicitudes guardadas en este navegador y actualiza su estado para la demostración.</p></div>
+                </div>
+                <div class="table-container">
+                    <div class="table-toolbar"><input type="search" id="adminPqrsSearch" placeholder="Buscar por código, nombre, correo o asunto..." aria-label="Buscar solicitudes"></div>
+                    <div class="table-scroll"><table><thead><tr><th>Código / fecha</th><th>Solicitante</th><th>Tipo / tema</th><th>Asunto y descripción</th><th>Estado</th></tr></thead><tbody id="adminPqrsTable"></tbody></table></div>
+                </div>
+                <p class="form-help">Las solicitudes se guardan en localStorage, por lo que solo aparecen en este navegador y perfil de demostración.</p>
+            </section>
+
+            <section class="admin-section" id="admin-orders-section" style="display: none;">
+                <div class="section-title section-title-left">
+                    <div><h2>Pedidos de la tienda</h2><p>Consulta las compras simuladas realizadas desde la tienda deportiva de Sports Care.</p></div>
+                </div>
+                <div class="table-container"><div class="table-scroll"><table><thead><tr><th>Número</th><th>Fecha</th><th>Cliente</th><th>Productos</th><th>Total</th><th>Estado</th></tr></thead><tbody id="adminOrdersTable"></tbody></table></div></div>
+                <p class="form-help">Los pedidos son registros de demostración. No se realizan cobros ni se gestionan envíos reales.</p>
+            </section>
+
+            <section class="admin-section" id="admin-plan-interests-section" style="display: none;">
+                <div class="section-title section-title-left">
+                    <div><h2>Interés en planes</h2><p>Consulta las selecciones e intereses guardados desde la página de planes. No son suscripciones activas.</p></div>
+                </div>
+                <div class="table-container"><div class="table-scroll"><table><thead><tr><th>Fecha</th><th>Plan</th><th>Correo</th><th>Valor de referencia</th><th>Estado</th></tr></thead><tbody id="adminPlanInterestTable"></tbody></table></div></div>
+                <p class="form-help">Los precios son supuestos académicos del documento de planificación. Esta sección no activa planes ni registra pagos.</p>
+            </section>
+        </main>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="index.html" class="logo-box" aria-label="Sports Care, volver al inicio">
+                <img src="img/logo.jpeg" alt="Logo de Sports Care" class="logo-image">
+                <span class="logo-text">SPORTS <span>CARE</span></span>
+            </a>
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="planes.html">Planes</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="pqrs.html">Contacto</a>
+            </div>
+            <p class="copyright-note">© 2026 Sports Care. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="exerciseModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-modal" id="closeExerciseModal">&times;</span>
+            <h2 id="modalTitle">Registrar Nuevo Ejercicio</h2>
+            <form id="exerciseForm">
+                <input type="hidden" id="editIndex" value="">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="exCode">Código Único</label>
+                        <input type="text" id="exCode" required placeholder="Ej. EX-005">
+                    </div>
+                    <div class="form-group">
+                        <label for="exName">Nombre del Ejercicio</label>
+                        <input type="text" id="exName" required placeholder="Ej. Press Militar">
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="exCategory">Categoría</label>
+                        <select id="exCategory" required>
+                            <option value="Fuerza">Fuerza</option>
+                            <option value="Hipertrofia">Hipertrofia</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Resistencia">Resistencia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exLevel">Nivel</label>
+                        <select id="exLevel" required>
+                            <option value="Principiante">Principiante</option>
+                            <option value="Intermedio">Intermedio</option>
+                            <option value="Avanzado">Avanzado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label for="exDuration">Duración / Ritmo</label>
+                        <input type="text" id="exDuration" required placeholder="Ej. 4 series x 10 reps">
+                    </div>
+                    <div class="form-group">
+                        <label for="exSeries">Número de Series</label>
+                        <input type="number" id="exSeries" required min="1" max="10" placeholder="4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exImage">URL de Imagen (Opcional)</label>
+                    <input type="text" id="exImage" placeholder="https://... o img/ejercicio.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="exDesc">Descripción</label>
+                    <textarea id="exDesc" rows="3" required placeholder="Detalles de ejecución..."></textarea>
+                </div>
+                <div id="adminFormError" class="error-msg"></div>
+                <button type="submit" class="btn btn-solid btn-full">Guardar Ejercicio</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/admin.js"></script>
+
+    <a class="whatsapp-float" href="https://wa.me/573332684156?text=Hola%2C%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20Sports%20Care." target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para comunicarse con Sports Care al +57 333 268 4156">
+        <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M16.02 3C8.85 3 3.02 8.79 3.02 15.92c0 2.29.61 4.53 1.78 6.5L3 29l6.78-1.77a13.1 13.1 0 0 0 6.23 1.58h.01C23.18 28.81 29 23.02 29 15.9 29 12.44 27.65 9.18 25.2 6.74A12.9 12.9 0 0 0 16.02 3Zm0 23.6h-.01a10.9 10.9 0 0 1-5.55-1.51l-.4-.24-4.02 1.05 1.07-3.9-.26-.41a10.7 10.7 0 0 1-1.65-5.67c0-5.97 4.87-10.82 10.85-10.82 2.9 0 5.62 1.13 7.67 3.17a10.75 10.75 0 0 1 3.18 7.66c0 5.97-4.87 10.83-10.88 10.83Zm5.96-8.1c-.33-.17-1.94-.95-2.24-1.06-.3-.11-.52-.17-.74.17-.22.33-.85 1.06-1.04 1.28-.19.22-.39.25-.72.08-.33-.17-1.39-.51-2.65-1.63-.98-.87-1.64-1.94-1.83-2.27-.19-.33-.02-.51.14-.68.15-.15.33-.39.5-.58.17-.19.22-.33.33-.55.11-.22.06-.41-.03-.58-.08-.17-.74-1.77-1.01-2.42-.27-.63-.54-.55-.74-.56h-.63c-.22 0-.58.08-.88.41-.3.33-1.16 1.13-1.16 2.73s1.19 3.17 1.35 3.39c.17.22 2.34 3.57 5.67 5.01.79.34 1.41.55 1.89.71.79.25 1.51.22 2.08.13.63-.09 1.94-.79 2.21-1.55.27-.77.27-1.42.19-1.55-.08-.14-.3-.22-.63-.39Z"/>
+        </svg>
+        <span class="whatsapp-float__label">Comunicación personalizada</span>
+    </a>
+
+</body>
+</html>

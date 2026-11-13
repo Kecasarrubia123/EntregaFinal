@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conoce los planes propuestos para Sports Care.">
+  <title>Planes | Sports Care</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html#inicio" class="logo-box" aria-label="Sports Care, inicio">
+        <img src="img/logo.jpeg" alt="Logo de Sports Care" class="logo-image">
+        <span class="logo-text">SPORTS <span>CARE</span></span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="navMenu authButtons" aria-label="Abrir menú">☰</button>
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a class="nav-link" href="index.html#inicio">Inicio</a>
+        <a class="nav-link" href="index.html#beneficios">Beneficios</a>
+        <a class="nav-link" href="planes.html" aria-current="page">Planes</a>
+        <a class="nav-link" href="tienda.html">Tienda</a>
+        <a class="nav-link" href="pqrs.html">Quejas y reclamos</a>
+      </nav>
+      <div class="auth-buttons" id="authButtons">
+        <a class="btn btn-outline" href="index.html?modal=login">Iniciar sesión</a>
+        <a class="btn btn-solid" href="index.html?modal=register">Registrarse</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="public-hero">
+      <div class="container public-hero-grid">
+        <div>
+          <p class="eyebrow">PLANES SPORTS CARE</p>
+          <h1>Elige cómo quieres <span>organizar tu entrenamiento.</span></h1>
+          <p>Consulta las opciones previstas para el proyecto. Los precios de los planes de pago son estimaciones académicas, no suscripciones comerciales activas.</p>
+          <a href="#planes" class="btn btn-solid btn-lg">Ver planes</a>
+        </div>
+        <div class="public-hero-card">
+          <span class="public-hero-icon">🎯</span>
+          <h2>Tu progreso empieza por organizarte</h2>
+          <p>La primera versión se concentra en el acceso, el cuestionario inicial y el catálogo de ejercicios.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="planes">
+      <div class="container">
+        <div class="section-title">
+          <h2>Planes disponibles en la propuesta</h2>
+          <p>Selecciona una opción para registrar tu interés en esta demostración académica.</p>
+        </div>
+        <div class="plan-grid">
+          <article class="plan-card">
+            <span class="plan-label">Para conocer la plataforma</span>
+            <h3>Plan de demostración</h3>
+            <p class="plan-price">$0 <small>COP</small></p>
+            <p class="plan-description">Ideal para explorar las funciones principales del prototipo.</p>
+            <ul>
+              <li>Acceso al catálogo de ejercicios.</li>
+              <li>Cuestionario inicial.</li>
+              <li>Registro de actividades en el navegador.</li>
+              <li>Sin pagos reales.</li>
+            </ul>
+            <button type="button" class="btn btn-solid btn-full plan-select" data-plan="demo">Usar plan de demostración</button>
+          </article>
+          <article class="plan-card plan-featured">
+            <span class="plan-label">Propuesta individual · futuro</span>
+            <h3>Plan Individual</h3>
+            <p class="plan-price">$29.900 <small>COP / mes</small></p>
+            <p class="plan-description">Precio hipotético para estudiar la sostenibilidad futura del proyecto.</p>
+            <ul>
+              <li>Funciones básicas de Sports Care.</li>
+              <li>Posibles herramientas ampliadas de organización.</li>
+              <li>Seguimiento persistente sujeto a desarrollo.</li>
+              <li>Precio por validar con usuarios.</li>
+            </ul>
+            <button type="button" class="btn btn-solid btn-full plan-select" data-plan="individual">Me interesa este plan</button>
+          </article>
+          <article class="plan-card">
+            <span class="plan-label">Institucional · futuro</span>
+            <h3>Plan para instituciones</h3>
+            <p class="plan-price">$249.000 <small>COP / mes</small></p>
+            <p class="plan-description">Supuesto de referencia para una posible oferta dirigida a gimnasios o instituciones.</p>
+            <ul>
+              <li>Posible gestión de miembros.</li>
+              <li>Organización de grupos.</li>
+              <li>Consulta de actividad grupal.</li>
+              <li>No forma parte del MVP actual.</li>
+            </ul>
+            <button type="button" class="btn btn-outline btn-full plan-select" data-plan="institucional">Solicitar información</button>
+          </article>
+        </div>
+        <div class="plan-notice" role="note">
+          <strong>Importante:</strong> los valores de $29.900 y $249.000 COP mensuales proceden de la proyección académica del proyecto. Esta página no activa suscripciones, no procesa pagos y no representa una oferta comercial vigente.
+        </div>
+        <div id="planMessage" class="plan-message" role="status" aria-live="polite"></div>
+        <p class="public-secondary-link">¿Tienes preguntas, una queja o un reclamo? <a href="pqrs.html">Comunícate con Sports Care mediante el formulario PQRS.</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="index.html#inicio" class="logo-box"><img src="img/logo.jpeg" alt="Logo de Sports Care" class="logo-image"><span class="logo-text">SPORTS <span>CARE</span></span></a>
+      <p>Proyecto académico CESDE · Módulo de gestión de ejercicios.</p>
+      <div class="footer-links"><a href="index.html">Inicio</a><a href="tienda.html">Tienda</a><a href="pqrs.html">Quejas y reclamos</a></div>
+      <p class="copyright-note">© 2026 Sports Care. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="js/common.js"></script>
+  <script src="js/planes.js"></script>
+
+    <!-- Acceso directo a WhatsApp para comunicación personalizada -->
+    <a class="whatsapp-float" href="https://wa.me/573332684156?text=Hola%2C%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20Sports%20Care." target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para comunicarse con Sports Care al +57 333 268 4156">
+        <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M16.02 3C8.85 3 3.02 8.79 3.02 15.92c0 2.29.61 4.53 1.78 6.5L3 29l6.78-1.77a13.1 13.1 0 0 0 6.23 1.58h.01C23.18 28.81 29 23.02 29 15.9 29 12.44 27.65 9.18 25.2 6.74A12.9 12.9 0 0 0 16.02 3Zm0 23.6h-.01a10.9 10.9 0 0 1-5.55-1.51l-.4-.24-4.02 1.05 1.07-3.9-.26-.41a10.7 10.7 0 0 1-1.65-5.67c0-5.97 4.87-10.82 10.85-10.82 2.9 0 5.62 1.13 7.67 3.17a10.75 10.75 0 0 1 3.18 7.66c0 5.97-4.87 10.83-10.88 10.83Zm5.96-8.1c-.33-.17-1.94-.95-2.24-1.06-.3-.11-.52-.17-.74.17-.22.33-.85 1.06-1.04 1.28-.19.22-.39.25-.72.08-.33-.17-1.39-.51-2.65-1.63-.98-.87-1.64-1.94-1.83-2.27-.19-.33-.02-.51.14-.68.15-.15.33-.39.5-.58.17-.19.22-.33.33-.55.11-.22.06-.41-.03-.58-.08-.17-.74-1.77-1.01-2.42-.27-.63-.54-.55-.74-.56h-.63c-.22 0-.58.08-.88.41-.3.33-1.16 1.13-1.16 2.73s1.19 3.17 1.35 3.39c.17.22 2.34 3.57 5.67 5.01.79.34 1.41.55 1.89.71.79.25 1.51.22 2.08.13.63-.09 1.94-.79 2.21-1.55.27-.77.27-1.42.19-1.55-.08-.14-.3-.22-.63-.39Z"/>
+        </svg>
+        <span class="whatsapp-float__label">Comunicación personalizada</span>
+    </a>
+
+</body>
+</html>

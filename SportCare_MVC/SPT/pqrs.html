@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Envía peticiones, quejas, reclamos o sugerencias a Sports Care.">
+  <title>Quejas, reclamos y sugerencias | Sports Care</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/whatsapp.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav-container">
+      <a href="index.html#inicio" class="logo-box" aria-label="Sports Care, inicio">
+        <img src="img/logo.jpeg" alt="Logo de Sports Care" class="logo-image">
+        <span class="logo-text">SPORTS <span>CARE</span></span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="navMenu authButtons" aria-label="Abrir menú">☰</button>
+      <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
+        <a class="nav-link" href="index.html#inicio">Inicio</a>
+        <a class="nav-link" href="planes.html">Planes</a>
+        <a class="nav-link" href="tienda.html">Tienda</a>
+        <a class="nav-link" href="pqrs.html" aria-current="page">PQRS</a>
+      </nav>
+      <div class="auth-buttons" id="authButtons">
+        <a class="btn btn-outline" href="index.html?modal=login">Iniciar sesión</a>
+        <a class="btn btn-solid" href="index.html?modal=register">Registrarse</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="public-hero public-hero-compact">
+      <div class="container public-hero-grid">
+        <div>
+          <p class="eyebrow">TE ESCUCHAMOS</p>
+          <h1>Peticiones, quejas, <span>reclamos y sugerencias.</span></h1>
+          <p>Este formulario académico permite dejar comentarios sobre el funcionamiento de Sports Care y registrar una solicitud para que el equipo pueda revisarla.</p>
+        </div>
+        <div class="public-hero-card">
+          <span class="public-hero-icon">💬</span>
+          <h2>Tu opinión importa</h2>
+          <p>Al enviar el formulario recibirás un código de seguimiento de demostración. La información queda almacenada en este navegador.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container pqrs-layout">
+        <div class="card pqrs-form-card">
+          <h2>Registrar una solicitud</h2>
+          <p class="form-help">Completa los campos para guardar tu mensaje. No incluyas contraseñas ni información financiera sensible.</p>
+          <form id="pqrsForm">
+            <div class="grid-2">
+              <div class="form-group"><label for="pqrsName">Nombre completo</label><input id="pqrsName" name="name" type="text" maxlength="100" required></div>
+              <div class="form-group"><label for="pqrsEmail">Correo electrónico</label><input id="pqrsEmail" name="email" type="email" maxlength="150" required></div>
+            </div>
+            <div class="grid-2">
+              <div class="form-group"><label for="pqrsType">Tipo de solicitud</label>
+                <select id="pqrsType" name="type" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="Petición">Petición</option>
+                  <option value="Queja">Queja</option>
+                  <option value="Reclamo">Reclamo</option>
+                  <option value="Sugerencia">Sugerencia</option>
+                  <option value="Felicitación">Felicitación</option>
+                </select>
+              </div>
+              <div class="form-group"><label for="pqrsArea">Tema</label>
+                <select id="pqrsArea" name="area" required>
+                  <option value="">Selecciona un tema</option>
+                  <option value="Acceso y cuenta">Acceso y cuenta</option>
+                  <option value="Ejercicios y catálogo">Ejercicios y catálogo</option>
+                  <option value="Planes">Planes</option>
+                  <option value="Tienda y pedidos">Tienda y pedidos</option>
+                  <option value="Diseño y navegación">Diseño y navegación</option>
+                  <option value="Otro tema">Otro tema</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><label for="pqrsSubject">Asunto</label><input id="pqrsSubject" name="subject" type="text" maxlength="120" required placeholder="Resume el motivo de tu solicitud"></div>
+            <div class="form-group"><label for="pqrsMessage">Descripción</label><textarea id="pqrsMessage" name="message" rows="6" maxlength="1500" required placeholder="Cuéntanos qué ocurrió o qué deseas proponer (mínimo 10 caracteres)"></textarea></div>
+            <p class="pqrs-privacy">Al enviar, aceptas que estos datos se utilicen únicamente para mostrar y revisar tu solicitud en este prototipo de clase.</p>
+            <div id="pqrsError" class="error-msg" role="alert"></div>
+            <button type="submit" class="btn btn-solid">Enviar solicitud</button>
+          </form>
+          <div id="pqrsSuccess" class="pqrs-success" role="status" aria-live="polite" hidden></div>
+        </div>
+        <aside class="pqrs-side">
+          <div class="card">
+            <h3>¿Qué puedes enviar?</h3>
+            <ul class="pqrs-type-list">
+              <li><strong>Petición:</strong> una solicitud de información o ayuda.</li>
+              <li><strong>Queja:</strong> una inconformidad con la experiencia.</li>
+              <li><strong>Reclamo:</strong> un reporte de un problema que necesita revisión.</li>
+              <li><strong>Sugerencia:</strong> una idea para mejorar Sports Care.</li>
+            </ul>
+          </div>
+          <div class="card whatsapp-contact-card">
+            <h3>Comunicación personalizada</h3>
+            <p>¿Prefieres hablar directamente con nuestro equipo? Escríbenos por WhatsApp al <strong>+57 333 268 4156</strong>.</p>
+            <a class="btn btn-solid btn-full" href="https://wa.me/573332684156?text=Hola%2C%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20Sports%20Care." target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
+          </div>
+          <div class="card pqrs-lookup-card">
+            <h3>Consultar solicitudes guardadas</h3>
+            <p>Escribe el mismo correo usado al enviar una solicitud para ver los registros de este navegador.</p>
+            <form id="pqrsLookupForm">
+              <div class="form-group"><label for="lookupEmail">Correo electrónico</label><input id="lookupEmail" type="email" required></div>
+              <button class="btn btn-outline btn-full" type="submit">Consultar</button>
+            </form>
+            <div id="pqrsHistory" class="pqrs-history" aria-live="polite"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <a href="index.html#inicio" class="logo-box"><img src="img/logo.jpeg" alt="Logo de Sports Care" class="logo-image"><span class="logo-text">SPORTS <span>CARE</span></span></a>
+      <p> @ · Sports Care.</p>
+      <div class="footer-links"><a href="index.html">Inicio</a><a href="planes.html">Planes</a><a href="tienda.html">Tienda</a></div>
+      <p class="copyright-note">© 2026 Sports Care. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="js/common.js"></script>
+  <script src="js/pqrs.js"></script>
+
+    <!-- Acceso directo a WhatsApp para comunicación personalizada -->
+    <a class="whatsapp-float" href="https://wa.me/573332684156?text=Hola%2C%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20Sports%20Care." target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp para comunicarse con Sports Care al +57 333 268 4156">
+        <svg class="whatsapp-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M16.02 3C8.85 3 3.02 8.79 3.02 15.92c0 2.29.61 4.53 1.78 6.5L3 29l6.78-1.77a13.1 13.1 0 0 0 6.23 1.58h.01C23.18 28.81 29 23.02 29 15.9 29 12.44 27.65 9.18 25.2 6.74A12.9 12.9 0 0 0 16.02 3Zm0 23.6h-.01a10.9 10.9 0 0 1-5.55-1.51l-.4-.24-4.02 1.05 1.07-3.9-.26-.41a10.7 10.7 0 0 1-1.65-5.67c0-5.97 4.87-10.82 10.85-10.82 2.9 0 5.62 1.13 7.67 3.17a10.75 10.75 0 0 1 3.18 7.66c0 5.97-4.87 10.83-10.88 10.83Zm5.96-8.1c-.33-.17-1.94-.95-2.24-1.06-.3-.11-.52-.17-.74.17-.22.33-.85 1.06-1.04 1.28-.19.22-.39.25-.72.08-.33-.17-1.39-.51-2.65-1.63-.98-.87-1.64-1.94-1.83-2.27-.19-.33-.02-.51.14-.68.15-.15.33-.39.5-.58.17-.19.22-.33.33-.55.11-.22.06-.41-.03-.58-.08-.17-.74-1.77-1.01-2.42-.27-.63-.54-.55-.74-.56h-.63c-.22 0-.58.08-.88.41-.3.33-1.16 1.13-1.16 2.73s1.19 3.17 1.35 3.39c.17.22 2.34 3.57 5.67 5.01.79.34 1.41.55 1.89.71.79.25 1.51.22 2.08.13.63-.09 1.94-.79 2.21-1.55.27-.77.27-1.42.19-1.55-.08-.14-.3-.22-.63-.39Z"/>
+        </svg>
+        <span class="whatsapp-float__label">Comunicación personalizada</span>
+    </a>
+
+</body>
+</html>
